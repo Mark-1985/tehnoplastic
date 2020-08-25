@@ -1,0 +1,14 @@
+.DS_Store
+Thumbs.db
+dist/
+node_modules/
+src/icons/components
+package-lock.json
+yarn.lock
+wordpressvue.7z
+src.zip
+*.log
+
+# Editor directories and files
+.vscode
+.idea

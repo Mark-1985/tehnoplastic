@@ -1,0 +1,10 @@
+@import "./functions/functions"; //дополнительные functions
+@import "./mixin/mixin"; //дополнительные mixins
+@import "./settings"; //дополнительные mixins
+@import "./variables"; //настройки проэкта
+
+@import "./global"; //глобальные стили
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins/breakpoints";
+

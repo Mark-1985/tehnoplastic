@@ -1,0 +1,88 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&family=Roboto:wght@300;400;700&display=swap");
+
+//bootstrap
+$light: #f9f9f9;
+$secondary: #ebebeb;
+$gray-600: #8c8c8c;
+$yellow: #FFC85D; //f4d240;
+$orang: #c9790d;
+$red: #f45a40;
+$red2: #b61320;
+$red3: #eb5757;
+$blue: #0c647d;
+$green: #2fb457;
+
+$enable-rounded: false;
+$enable-responsive-font-sizes: true;
+$border-radius: 30px;
+
+$font-family-sans: "Roboto Condensed", sans-serif;
+$font-family-sans-serif: "Roboto", sans-serif;
+
+//light gallery
+$backdrop-opacity: 0.5;
+
+//формирование базы шрифта
+$size: 16px;
+$line_height: 21px;
+$weight: 400;
+$va: 18;
+$h1-font-size: 2.25rem;
+
+
+$spacer: 1rem !default;
+$spacers: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$spacers: map-merge(
+   (
+      0: 0,
+      1: (
+         $spacer * 0.25,
+      ),
+      2: (
+         $spacer * 0.5,
+      ),
+      3: (
+         $spacer * 0.75,
+      ),
+      4: $spacer,
+      5: (
+         $spacer * 1.25,
+      ),
+      6: (
+         $spacer * 1.5,
+      ),
+      8: (
+         $spacer * 2,
+      ),
+      10: (
+         $spacer * 2.5,
+      ),
+      12: (
+         $spacer * 3,
+      ),
+      16: (
+         $spacer * 4,
+      ),
+      20: (
+         $spacer * 5,
+      ),
+   ),
+   $spacers
+);
+// This variable affects the `.h-*` and `.w-*` classes.
+$sizes: () !default;
+
+$sizes: map-merge(
+   (
+      10: 10%,
+      25: 25%,
+      40: 40%,
+      50: 50%,
+      75: 75%,
+      80: 80%,
+      100: 100%,
+      auto: auto,
+   ),
+   $sizes
+);
