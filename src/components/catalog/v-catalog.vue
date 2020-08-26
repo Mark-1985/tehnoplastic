@@ -1,6 +1,6 @@
 <template>
   <b-container fluid="lg" class="v-catalog">    
-    <h1 class="text-center">Носки купить</h1>
+    <h1 class="text-center">Каталог</h1>
     <b-row cols="6" class="justify-content-between px-1 px-md-3 mb-2">
 
       <b-form-select v-model="sortingCatalog" 

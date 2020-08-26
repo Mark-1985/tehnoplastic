@@ -14,11 +14,12 @@
         :style="{ 'object-fit': 'cover', height:'220px'}"
       />
       <div class="card-body d-flex align-items-start flex-column bd-highlight">
-        <h6 class="text-center mb-auto text-muted bd-highlight">{{product_data.name}}</h6>
+        <h6 class="text-center mb-auto text-muted bd-highlight w-100">{{product_data.name}}</h6>
         <div class="mx-auto my-4">
-          <h4 class="card-text font-weight-bold">{{product_data.price}} грн.</h4>
+<!--           <h4 class="card-text font-weight-bold">{{product_data.price}} грн.</h4>
+ -->        
         </div>
-        <b-button
+<!--         <b-button
           class="btn_buy"
           block
           variant="primary bd-highlight"
@@ -26,20 +27,19 @@
           
         >
           Купить
-          <!--  <svg-icon name="shopping-cart" style="width: 1.4em; height: 1.4em"></svg-icon> -->
+           <svg-icon name="shopping-cart" style="width: 1.4em; height: 1.4em"></svg-icon>
         </b-button>
-
-<!--         <b-button
+ -->
+        <b-button
           class="btn_look"
           block
           variant="success bd-highlight"
           @click="toProduct(product_data)"
-          v-else
         >
-          Просмотреть
- -->          <!-- <svg-icon name="redo"></svg-icon> -->
-<!--         </b-button>
- -->        
+          Подробнее
+          <!-- <svg-icon name="redo"></svg-icon> -->
+        </b-button>
+
       </div>
     </div>
   </div>

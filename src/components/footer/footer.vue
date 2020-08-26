@@ -27,12 +27,12 @@
           <h5>Контакты:</h5>
           <hr class="mt-1 bg-white" />
           <a
-            v-if="this.adress != ''"
+            v-if="this.CUSTOMERS != ''"
             href="#"
             class="d-block font-size-14 text-decoration-none text-muted my-2"
           >
             <b-icon-house-door class="mr-2"></b-icon-house-door>
-            <span class>{{this.adress.title.rendered}}</span>
+            <span class>{{this.CUSTOMERS.billing.address_1}}</span>
           </a>
           <a
             v-if="this.CUSTOMERS != ''"
@@ -53,7 +53,7 @@
         </div>
 
         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-          <h5>Найди свои носоки:</h5>
+          <h5>Найди свой товар:</h5>
           <hr class="mt-1 bg-white" />
           <div class="social-network d-flex align-items-start flex-column">
             <b-navbar-nav>
@@ -101,7 +101,7 @@
       </div>
     </div>
     <div class="container-fluid text-center py-5 bg-danger">
-      <p class="text-white my-auto">© "Полтава" 2020</p>
+      <p class="text-white my-auto">© "Харьков" 2020</p>
     </div>
   </footer>
 </template>
@@ -171,13 +171,8 @@ export default {
   },
   async mounted() {
     axios
-      .get("https://rubizhnesocks.pl.ua/wp-json/wp/v2/pages/124")
+      .get("https://www.tehnoplastic.com.ua/wp-json/wp/v2/pages/26")
       .then((response) => (this.data = response.data))
-      .catch((error) => console.log(error));
-
-    axios
-      .get("https://rubizhnesocks.pl.ua/wp-json/wp/v2/posts/1")
-      .then((response) => (this.adress = response.data))
       .catch((error) => console.log(error));
 
     if (this.$route.path != "/") {

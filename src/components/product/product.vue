@@ -72,48 +72,22 @@
             <div class="border-bottom mt-4 mt-sm-0 mb-2 text-center text-sm-left" v-html="PRODUCT[0].short_description"></div>
             <div class="d-flex flex-column flex-sm-row justify-content-sm-between text-center">
               <p class="text-muted">Артикул: {{PRODUCT[0].sku}}</p>
-              <p v-if="PRODUCT[0].purchasable" class="in_stock text-success px-1">
+              <p class="in_stock text-success px-1">
                 <svg-icon name="correct" style="width: 1.3em; height: 1.3em;"></svg-icon>
-                В наличии
+                Под заказ
               </p>
-              <p v-else class="text-danger text-uppercase">Нет в наличии</p>
             </div>
             <!-- Price -->
             <div class="text-center text-sm-left mb-4 pl-0">
-              <h2 class="h2 text-danger font-weight-bold">{{PRODUCT[0].price}} грн.</h2>
+              <h2 v-if="PRODUCT[0].price" class="h2 text-danger font-weight-bold">от {{PRODUCT[0].price}} грн.</h2>
             </div>
             <!-- Description -->
             <div class="product_description" v-html="PRODUCT[0].description"></div>
             <hr>
             <div class="row">
               <div class="col-12 d-flex flex-column mb-4 mx-auto">
-                <!-- Color -->
-<!--                 <colour v-if="PRODUCT[0].attributes[0] && PRODUCT[0].attributes[0].name === 'цвет'" 
-                        :colour="PRODUCT[0].attributes[0].options">
-                </colour>
- -->                <!-- Size -->
-<!--                 <select v-if="PRODUCT[0].attributes[0] && PRODUCT[0].attributes[0].name === 'Размер'"
-                        class="form-control form-control-md border-info mb-3">
-                  <option>Размер</option>
-                  <option
-                    v-for="(size, index ) in PRODUCT[0].attributes[0].options"
-                    :key="index">
-                    {{size}}
-                  </option>
-                </select>
-                <select v-if="PRODUCT[0].attributes[1] && PRODUCT[0].attributes[1].name === 'Размер'"
-                        class="form-control form-control-md border-info mb-4"
-                        v-model="sizeProduct"
-                        >
-                  <option>Размер</option>
-                  <option
-                    v-for="(size, index ) in PRODUCT[0].attributes[1].options"
-                    :key="index">
-                    {{size}}
-                  </option>
-                </select>
- -->                <!-- Count -->
-                <div class="col-12 col-sm-6 col-md-5 px-0 text-center text-sm-left">
+                <!-- Count -->
+<!--                 <div class="col-12 col-sm-6 col-md-5 px-0 text-center text-sm-left">
                   <b-input-group size="md">
                     <b-input-group-prepend>
                       <b-btn variant="info" @click="decrement">-</b-btn>
@@ -124,6 +98,7 @@
                     </b-input-group-append>
                   </b-input-group>
                 </div>
+ -->              
               </div>
             </div>
 
@@ -162,7 +137,6 @@ export default {
   components: {
     LightGallery,
     SimilarProducts: () => import("@/components/catalog/similar-products"),
-    //Colour: () => import("./colour")
   },
   props: {},
   data() {
@@ -279,6 +253,10 @@ export default {
       }
     this.GET_PRODUCT_FROM_API().then(response => {
       if (response.data) {
+        //this.$route.name = this.PRODUCT[0].name;
+        //this.$router.query.push(this.PRODUCT[0].name);
+        document.querySelector('.breadcrumb-item > span').textContent = this.PRODUCT[0].name;
+        //console.log(elements);
         let vm = this;
         this.PRODUCT[0].images.map(function(img) {
           vm.images.push(img.src);

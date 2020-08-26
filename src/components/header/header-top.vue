@@ -129,8 +129,8 @@ export default {
       if (response.data) {
         //console.log(response.data);
         this.phone = response.data.billing.phone;
-        this.email = response.data.billing.email;
-        this.toemail = "mailto:" + response.data.billing.email;
+        this.email = response.data.email;
+        this.toemail = "mailto:" + response.data.email;
         this.tophone = "tel:" + response.data.billing.phone;
       }
     });

@@ -15,7 +15,7 @@ export default {
       return await WooCommerce.get("products", await {
         orderby: state.sortingCatalog.orderby,
         order: state.sortingCatalog.order,
-        stock_status: "instock",
+        //stock_status: "instock",
         //slug: "noski-zhenskie-grand-ukorochenye-sport-glad-r-36-40",
         category: state.categoryId,
         search: state.vModelValue,
@@ -147,7 +147,7 @@ export default {
   },
   async GET_POP_PRODUCTS_FROM_API({ commit }) {
     try {
-      let $random = Math.floor(Math.random() * 2) + 1;
+      //let $random = Math.floor(Math.random() * 2) + 1;
       const WooCommerce = new WooCommerceRestApi({
         url: SETTINGS.URL, // Your store URL
         consumerKey: SETTINGS.KEY, // Your consumer key
@@ -156,9 +156,9 @@ export default {
         axiosConfig: SETTINGS.AXIOS,
       });
       return await WooCommerce.get("products", await {
-        featured: true,
-        per_page: 5,
-        page: $random,
+        featured: true
+        //per_page: 5,
+        //page: $random,
       })
         .then((response) => {
           //вызываем мутацию для передачи даных
@@ -214,7 +214,7 @@ export default {
         version: SETTINGS.VERSION_3, // WooCommerce WP REST API version
         axiosConfig: SETTINGS.AXIOS,
       });
-      return await WooCommerce.get("products/categories?include=33,36,39,53") // ?include=33,36,39
+      return await WooCommerce.get("products/categories?exclude=15") // ?include=33,36,39
         .then((categories) => {
           //вызываем мутацию для передачи даных
           commit("SET_CATEGORIES_TO_STATE", categories.data);
@@ -264,9 +264,8 @@ export default {
       return await WooCommerce.get(
         "products",
         await {
-          stock_status: "instock",
-          slug: state.product_slug,
-          per_page: 2,
+          //stock_status: "instock",
+          slug: state.product_slug
         }
       )
         .then((response) => {
