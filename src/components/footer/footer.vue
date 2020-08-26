@@ -3,7 +3,7 @@
     <div class="container-lg py-10">
       <div class="row">
         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-          <h5>Наш товар:</h5>
+          <h5>Наш услуги:</h5>
           <hr class="mt-1 bg-white" />
           <div v-if="data" class="font-size-14 text-muted" v-html="data.excerpt.rendered"></div>
         </div>
@@ -32,7 +32,7 @@
             class="d-block font-size-14 text-decoration-none text-muted my-2"
           >
             <b-icon-house-door class="mr-2"></b-icon-house-door>
-            <span class>{{this.CUSTOMERS.billing.address_1}}</span>
+            <span class>{{this.CUSTOMERS.billing.city}}, {{this.CUSTOMERS.billing.address_1}}</span>
           </a>
           <a
             v-if="this.CUSTOMERS != ''"
@@ -95,7 +95,7 @@
                 <img src="@/assets/images/footer/youtube.png" alt="youtube" width="30" />
               </a>
             </div>
-            <iframe class="d-block img-fluid mx-auto" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2586.717012116844!2d34.5448150157003!3d49.58422677936526!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d82f5bf7eaa52f%3A0xd1ab8aa1c6a12242!2z0YPQuy4g0KjQtdCy0YfQtdC90LrQviwgNDgsINCf0L7Qu9GC0LDQstCwLCDQn9C-0LvRgtCw0LLRgdC60LDRjyDQvtCx0LvQsNGB0YLRjCwgMzYwMDA!5e0!3m2!1sru!2sua!4v1596277487479!5m2!1sru!2sua"  frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+            <iframe class="d-block img-fluid mx-auto" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2564.857830998619!2d36.206365325664905!3d49.99527483586759!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4127a101bd50e405%3A0x3613c16d149dce9e!2z0YPQuy4g0JzQsNC70L7Qv9Cw0L3QsNGB0L7QstGB0LrQsNGPLCAxLCDQpdCw0YDRjNC60L7Qsiwg0KXQsNGA0YzQutC-0LLRgdC60LDRjyDQvtCx0LvQsNGB0YLRjCwgNjEwMDA!5e0!3m2!1sru!2sua!4v1598457529488!5m2!1sru!2sua" width="400" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
           </div>
         </div>
       </div>

@@ -33,7 +33,7 @@
         <b-button
           class="btn_look"
           block
-          variant="success bd-highlight"
+          variant="primary bd-highlight"
           @click="toProduct(product_data)"
         >
           Подробнее

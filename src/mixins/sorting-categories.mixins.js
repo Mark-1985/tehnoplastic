@@ -3,66 +3,17 @@ export default {
   data() {
     return {
       sortingCategories: null,
-      optionsCategories: [
-        { value: null, text: "Выбрать категорию" },
-        { value: 36, text: "Мужские" },
-        { value: 33, text: "Женские" },
-        { value: 39, text: "Детские" },
-        { value: 53, text: "Колготы детские" }
-      ],
-      sortingSubCategories: null,
-      optionsSubCategories: [{ value: null, text: "Сезон" }],
-
-      maleSortingSubCategories: null,
-      maleOptionsSubCategories: [
-        { value: null, text: "Сезон" },
-        { value: 38, text: "Зима" },
-        { value: 37, text: "Весна - осень" },
-        { value: 73, text: "Лето" }
-      ],
-      femaleSortingSubCategories: null,
-      femaleOptionsSubCategories: [
-        { value: null, text: "Сезон" },
-        { value: 35, text: "Зима" },
-        { value: 34, text: "Весна - осень" },
-        { value: 69, text: "Лето" }
-      ],
-      babySortingSubCategories: null,
-      babyOptionsSubCategories: [
-        { value: null, text: "Сезон" },
-        { value: 41, text: "Зима" },
-        { value: 40, text: "Весна - осень" },
-        { value: 70, text: "Лето" }
-      ]
     }
   },
   async mounted() {
   },
   watch: {
-    // отслеживание сортировок по категориям и под категориям
+    // отслеживание сортировок по категориям
     sortingCategories: function() {
       if (this.sortingCategories != this.CATEGORY_ID) {
         this.GET_ID_CATEGORIES_TO_VUEX(this.sortingCategories);
       }
     },
-    maleSortingSubCategories: function() {
-      this.GET_ID_CATEGORIES_TO_VUEX(this.maleSortingSubCategories);
-      if (this.maleSortingSubCategories === null) {
-        this.GET_ID_CATEGORIES_TO_VUEX(this.sortingCategories);
-      }
-    },
-    femaleSortingSubCategories: function() {
-      this.GET_ID_CATEGORIES_TO_VUEX(this.femaleSortingSubCategories);
-      if (this.femaleSortingSubCategories === null) {
-        this.GET_ID_CATEGORIES_TO_VUEX(this.sortingCategories);
-      }
-    }, 
-    babySortingSubCategories: function() {
-      this.GET_ID_CATEGORIES_TO_VUEX(this.babySortingSubCategories);
-      if (this.babySortingSubCategories === null) {
-        this.GET_ID_CATEGORIES_TO_VUEX(this.sortingCategories);
-      }
-    }, 
     // отслеживание изменения id категории
     CATEGORY_ID: function () {
       this.show = false;
@@ -77,18 +28,8 @@ export default {
         }
       });
 
-      if (this.CATEGORY_ID === 36) {
-        this.sortingCategories = this.CATEGORY_ID;
-      }
-      if (this.CATEGORY_ID === 33) {
-        this.sortingCategories = this.CATEGORY_ID;
-      }
-      if (this.CATEGORY_ID === 39) {
-        this.sortingCategories = this.CATEGORY_ID;
-      }
-      if (this.CATEGORY_ID === 53) {
-        this.sortingCategories = this.CATEGORY_ID;
-      }
+      this.sortingCategories = this.CATEGORY_ID;
+      
       if(this.CATEGORY_ID === "") {
         this.sortingCategories = null;
       }

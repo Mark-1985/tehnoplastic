@@ -1,54 +1,22 @@
 <template>
   <b-container fluid="lg" class="v-catalog">    
-    <h1 class="text-center">Каталог</h1>
+    <h1 class="text-center">Каталог товаров и услуг</h1>
     <b-row cols="6" class="justify-content-between px-1 px-md-3 mb-2">
 
-      <b-form-select v-model="sortingCatalog" 
-                    :options="sortingOptions" 
-                    size="sm" 
-                    class="col-6 col-sm-4 col-md-3 col-lg-2">
-      </b-form-select>
-      
-      <div class="col-6 col-md-5 col-lg-4 d-flex flex-column flex-sm-row pr-0">
-        <b-form-select
-          v-model="sortingCategories"
-          :options="optionsCategories"
-          class="mr-2"
-          size="sm"
-        ></b-form-select>
-        <b-form-select class="mt-2 mt-sm-0"
-          v-if="sortingCategories === null"
-          v-model="sortingSubCategories"
-          :options="optionsSubCategories"
-          size="sm"
-        ></b-form-select>
+      <select class="col-6 col-sm-4 col-md-4 col-lg-2 custom-select" 
+              v-model="sortingCategories"
+              style="max-height: 30px; font-size: 0.75rem;">
+          <option value="null">Выбрать категорию</option>
+          <option v-for="(row, index) in CATEGORIES" :key="index" :value="row.id">{{row.name}}</option>
+      </select>
 
-        <b-form-select class="mt-2 mt-sm-0"
-          v-if="sortingCategories === 36"
-          v-model="maleSortingSubCategories"
-          :options="maleOptionsSubCategories"
-          size="sm"
-        ></b-form-select>
-        <b-form-select class="mt-2 mt-sm-0"
-          v-if="sortingCategories === 33"
-          v-model="femaleSortingSubCategories"
-          :options="femaleOptionsSubCategories"
-          size="sm"
-        ></b-form-select>
-        <b-form-select class="mt-2 mt-sm-0"
-          v-if="sortingCategories === 39"
-          v-model="babySortingSubCategories"
-          :options="babyOptionsSubCategories"
-          size="sm"
-        ></b-form-select>
-      </div>
     </b-row>
 
     <div v-if="show === false" class="w-100 text-center my-3 text-primary">
       <b-spinner option="primary" label="Text Centered"></b-spinner>
     </div>
 
-    <div v-if="this.show === true" class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 pt-4">
+    <div v-if="this.show === true" class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 pt-4 px-md-2">
       <!--Передали даные с дочернему елементу с помощю v-bind -->
       <v-catalog-item
         v-for="product in PRODUCTS"
@@ -99,6 +67,7 @@ export default {
       "CART",
       "ROWS",
       "CATEGORY_ID",
+      "CATEGORIES",
       "ORDERS",
       "LSTOREG"
     ])

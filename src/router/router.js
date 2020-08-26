@@ -30,7 +30,7 @@ const routes = [
   {
     path: "/blog/",
     post_name: "about-us",
-    name: 'О фабрике',
+    name: 'О нас',
     component: AboutUs,
   },
   {

@@ -71,53 +71,33 @@
           <b-card-body class="pt-0">
             <div class="border-bottom mt-4 mt-sm-0 mb-2 text-center text-sm-left" v-html="PRODUCT[0].short_description"></div>
             <div class="d-flex flex-column flex-sm-row justify-content-sm-between text-center">
-              <p class="text-muted">Артикул: {{PRODUCT[0].sku}}</p>
-              <p class="in_stock text-success px-1">
+              <p class="text-muted mb-1">Цена:</p>
+              <p class="in_stock text-success px-1 mb-1">
                 <svg-icon name="correct" style="width: 1.3em; height: 1.3em;"></svg-icon>
                 Под заказ
               </p>
             </div>
             <!-- Price -->
-            <div class="text-center text-sm-left mb-4 pl-0">
-              <h2 v-if="PRODUCT[0].price" class="h2 text-danger font-weight-bold">от {{PRODUCT[0].price}} грн.</h2>
+            <div class="text-center text-sm-left mb-4 pl-0 text-danger">
+              <h2 v-if="PRODUCT[0].price" class="font-weight-bold" v-html="'от '+ PRODUCT[0].price_html"></h2>
             </div>
             <!-- Description -->
+            <p class="text-muted">Описание:</p>
             <div class="product_description" v-html="PRODUCT[0].description"></div>
             <hr>
-            <div class="row">
-              <div class="col-12 d-flex flex-column mb-4 mx-auto">
-                <!-- Count -->
-<!--                 <div class="col-12 col-sm-6 col-md-5 px-0 text-center text-sm-left">
-                  <b-input-group size="md">
-                    <b-input-group-prepend>
-                      <b-btn variant="info" @click="decrement">-</b-btn>
-                    </b-input-group-prepend>
-                    <b-form-input class="text-center" type="number" min="0" v-model="countProduct" :value="countProduct"></b-form-input>
-                    <b-input-group-append>
-                      <b-btn variant="info" @click="increment">+</b-btn>
-                    </b-input-group-append>
-                  </b-input-group>
-                </div>
- -->              
-              </div>
-            </div>
 
-            <div class="col-12 col-sm-12 d-flex d-flex flex-column flex-sm-row justify-content-between align-items-center px-0 py-5 mx-auto">
-              <b-button @click="addToCart(PRODUCT[0])"
-                        @mouseenter="hover_cart = true"
-                        @mouseleave="hover_cart  = false" 
-                        variant="outline-info btn_to_cart mr-0 mr-sm-4 mb-2 mb-sm-0 w-100">В корзину
-                <svg-icon name="shopping-cart"
-                          :class="{ hover_svg: hover_cart === true }" 
-                          style="width: 1.4em; height: 1.4em"></svg-icon>
-              </b-button>
-              <b-button @mouseenter="hover_buy = true"
-                        @mouseleave="hover_buy = false" 
-                        variant="outline-info btn_one_click w-100" class="d-none">Купить в один клик
-                <svg-icon name="click" 
-                          style="width: 1.4em; height: 1.4em"
-                          :class="{ hover_svg: hover_buy === true }"></svg-icon>
-              </b-button>
+            <div class="col-12 align-items-center px-0 py-5 mx-auto">
+              <h2 class="w-100 text-center">Все детали по телефону:</h2>
+
+              <a
+                v-if="this.CUSTOMERS != ''"
+                :href="'tel:' + this.CUSTOMERS.billing.phone"
+                class="d-block h2 text-decoration-none text-muted text-center my-3"
+              >
+                <b-icon-telephone class="mr-2"></b-icon-telephone>
+                <span class>{{this.CUSTOMERS.billing.phone}}</span>
+              </a>
+
             </div>
           </b-card-body>
         </b-col>
@@ -129,12 +109,14 @@
 </template>
 
 <script>
+import {BIconTelephone,} from "bootstrap-vue";
 import { mapGetters, mapActions } from "vuex";
 import { LightGallery } from "vue-light-gallery";
 
 export default {
   name: "product",
   components: {
+    BIconTelephone,
     LightGallery,
     SimilarProducts: () => import("@/components/catalog/similar-products"),
   },
@@ -153,13 +135,12 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(["PRODUCT", "PRODUCT_SLUG", "CART", "LSTOREG"])
+    ...mapGetters(["PRODUCT", "PRODUCT_SLUG", "CUSTOMERS"])
   },
   methods: {
     ...mapActions([
       "GET_PRODUCT_SLUG_TO_VUEX",
-      "GET_PRODUCT_FROM_API",
-      "ADD_TO_CART",
+      "GET_PRODUCT_FROM_API"
     ]),
     nextImg() {
       if (this.isActive < this.PRODUCT[0].images.length) {
@@ -180,67 +161,6 @@ export default {
     clickImg(value) {
       this.isActive = value;
     },
-    makeToast(variant = null, toaster, append = false) {
-      let $price = this.PRODUCT[0].price;
-      this.$bvToast.toast(this.PRODUCT[0].name, {
-        title: `Товар добавлен, по цене ${$price} грн`,
-        variant: variant,
-        toaster: toaster,
-        solid: true,
-        appendToast: append,
-        autoHideDelay: 500
-      });
-    },
-    //метод для получения даных из локального хранилища
-    getToCart() {
-      const $itemProduct = localStorage.getItem(this.LSTOREG);
-      if ($itemProduct !== null) {
-        return JSON.parse($itemProduct);
-      }
-      return [];
-    },
-    //метод обновления корзины
-    updateTocart(data){
-      this.lineItems = this.getToCart();  
-      //существует продукт или нет в хранилище
-      const $index = this.lineItems.find(item =>
-        item.product_id == data.id ? true : false
-      );
-      //действие если не существует в хранилище
-      if (!$index) {
-        var $orders = {
-          product_id: data.id,
-          quantity: this.countProduct,
-        };
-        this.lineItems.push($orders);
-        let $parse = JSON.stringify(this.lineItems);
-        return localStorage.setItem(this.LSTOREG, $parse);
-      } 
-      if($index) {
-        //действие если существует в хранилище
-        this.lineItems.find(item =>
-          item.product_id == data.id
-            ? (item.quantity = item.quantity + this.countProduct)
-            : ""
-        );
-        let $parse = JSON.stringify(this.lineItems);
-        return localStorage.setItem(this.LSTOREG, $parse);
-      }
-    },
-    //метод добавления в хранилище
-    addToCart(data) { 
-      this.makeToast("info", "b-toaster-bottom-left", true);
-      this.updateTocart(data);       
-      this.ADD_TO_CART(data);      
-    },
-    increment() {
-      this.countProduct++;
-    },
-    decrement() {
-      if (this.countProduct > 1) {
-        this.countProduct--;
-      }
-    },
   },
   mounted() {
     this.isActive = 0;
@@ -253,10 +173,6 @@ export default {
       }
     this.GET_PRODUCT_FROM_API().then(response => {
       if (response.data) {
-        //this.$route.name = this.PRODUCT[0].name;
-        //this.$router.query.push(this.PRODUCT[0].name);
-        document.querySelector('.breadcrumb-item > span').textContent = this.PRODUCT[0].name;
-        //console.log(elements);
         let vm = this;
         this.PRODUCT[0].images.map(function(img) {
           vm.images.push(img.src);
