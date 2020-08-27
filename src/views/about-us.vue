@@ -50,5 +50,12 @@ export default {
       object-fit: scale-down;
     }
 }
+@media  (max-width: 576px){
+	.about-us {
+    img {
+      max-width: 150px;
+    }
+	}
+}
 </style>
 
