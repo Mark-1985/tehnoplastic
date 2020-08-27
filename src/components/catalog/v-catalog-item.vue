@@ -16,20 +16,11 @@
       <div class="card-body d-flex align-items-start flex-column bd-highlight">
         <h6 class="text-center mb-auto text-muted bd-highlight w-100">{{product_data.name}}</h6>
         <div class="mx-auto my-4">
-<!--           <h4 class="card-text font-weight-bold">{{product_data.price}} грн.</h4>
- -->        
+          <!-- Price -->
+          <div v-if="product_data.price_html != ''" class="text-center text-sm-left mb-4 pl-0">
+            <h4 class="font-weight-bold" v-html="'от '+ product_data.price_html"></h4>
+          </div>
         </div>
-<!--         <b-button
-          class="btn_buy"
-          block
-          variant="primary bd-highlight"
-          @click="addToCart"
-          
-        >
-          Купить
-           <svg-icon name="shopping-cart" style="width: 1.4em; height: 1.4em"></svg-icon>
-        </b-button>
- -->
         <b-button
           class="btn_look"
           block
@@ -65,40 +56,17 @@ export default {
   computed: {},
   methods: {
     ...mapActions(["GET_PRODUCT_SLUG_TO_VUEX", "GET_PRODUCT_FROM_API"]),
-    makeToast(variant = null, toaster, append = false) {
-      let $price = this.product_data.price;
-      this.$bvToast.toast(this.product_data.name, {
-        title: `Товар добавлен, по цене ${$price} грн`,
-        variant: variant,
-        toaster: toaster,
-        solid: true,
-        appendToast: append,
-        autoHideDelay: 500
-      });
-    },
-    addToCart() {
-      this.$emit("addToCart", this.product_data);
-      this.makeToast("info", "b-toaster-bottom-left", true);
-    },
     toProduct() {
       this.GET_PRODUCT_SLUG_TO_VUEX(this.product_data.slug);
       this.GET_PRODUCT_FROM_API().then(response => {
         if (response.data) {
           const slug = this.product_data.slug;
-          if (
-            this.product_data.attributes.length &&
-            this.product_data.attributes[0].name === "цвет"
-          ) {
-            const colour = this.product_data.attributes[0].options[0];
+          if ( this.product_data.attributes.length ) {
             this.$router.push({
               name: "product",
-              params: { product: slug },
-              query: { colour: colour }
+              params: { product: slug }
             });
-          } else if (
-            !this.product_data.attributes.length ||
-            this.product_data.attributes[0].name != "цвет"
-          ) {
+          } else if ( !this.product_data.attributes.length ) {
             this.$router.push({ name: "product", params: { product: slug } });
           }
         }

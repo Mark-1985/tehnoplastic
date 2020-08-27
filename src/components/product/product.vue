@@ -71,7 +71,7 @@
           <b-card-body class="pt-0">
             <div class="border-bottom mt-4 mt-sm-0 mb-2 text-center text-sm-left" v-html="PRODUCT[0].short_description"></div>
             <div class="d-flex flex-column flex-sm-row justify-content-sm-between text-center">
-              <p class="text-muted mb-1">Цена:</p>
+              <p class="d-none d-sm-block text-muted mb-1">Цена:</p>
               <p class="in_stock text-success px-1 mb-1">
                 <svg-icon name="correct" style="width: 1.3em; height: 1.3em;"></svg-icon>
                 Под заказ
@@ -124,14 +124,11 @@ export default {
   data() {
     return {
       title: "product",
-      countProduct: 1,
       isActive: "",
-      size: null,
       images: [],
       indexGallery: null,
       hover_cart: false,
       hover_buy: false,
-      sizeProduct: 'Размер'
     };
   },
   computed: {
@@ -278,16 +275,6 @@ export default {
     .in_stock {
       svg {
         fill: $green;
-      }
-    }
-    .btn_to_cart,
-    .btn_one_click {
-      min-width: 200px;
-      .hover_svg {
-          fill: #fff;
-      }
-      svg {
-        fill: url(#svgicon_shopping-cart_a);
       }
     }
   }

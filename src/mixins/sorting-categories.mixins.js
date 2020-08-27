@@ -6,6 +6,10 @@ export default {
     }
   },
   async mounted() {
+    if (this.$route.path != "/shop" || this.$route.path != "/shop/") {
+      this.sortingCategories = this.CATEGORY_ID;
+    }
+    
   },
   watch: {
     // отслеживание сортировок по категориям

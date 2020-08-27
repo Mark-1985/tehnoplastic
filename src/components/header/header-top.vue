@@ -1,8 +1,9 @@
 <template>
   <b-navbar toggleable="sm" type="light" variant="white" class="py-0">
     <b-container fluid="lg" class="my-2">
-      <b-navbar-brand :href="url" class="mx-auto mx-sm-0 h1 text-uppercase mb-0">
-        <img :src=" require('../../assets/logo.png') " alt="logo" height="50" />
+      <b-navbar-brand :href="url" class="d-flex mx-auto mx-sm-0 h1 text-uppercase mb-0">
+        <img :src=" require('../../assets/logo.png') " alt="logo" height="40" />
+        <h3 v-if="this.CUSTOMERS !=''" class="px-3">{{this.CUSTOMERS.billing.first_name}}</h3>
       </b-navbar-brand>
       <b-navbar-nav class="flex-row text-center mx-auto mx-sm-0 ml-sm-auto">
         <b-nav-item :href="tophone" class="my-auto ml-3">

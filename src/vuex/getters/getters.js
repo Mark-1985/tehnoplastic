@@ -5,14 +5,8 @@ export default {
   PRODUCTS(state) {
     return state.products;
   },
-  ZONES(state) {
-    return state.zones;
-  },
   PRODUCT(state) {
     return state.product;
-  },
-  LSTOREG(state) {
-    return state.lstoreg;
   },
   PRODUCT_SLUG(state) {
     return state.product_slug
@@ -32,20 +26,11 @@ export default {
   CATEGORY_ID(state) {
     return state.categoryId;
   },
-  CART(state) {
-    return state.cart;
-  },
   MENU(state) {
     return state.menu;
   },
   INFO(state) {
     return state.info;
-  },
-  ORDERS(state) {
-    return state.orders;
-  },
-  ORDER(state) {
-    return state.order;
   },
   CUSTOMERS(state) {
     return state.customers;
