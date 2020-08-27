@@ -6,7 +6,7 @@
       <select class="col-6 col-sm-4 col-md-4 col-lg-2 custom-select" 
               v-model="sortingCategories"
               style="max-height: 30px; font-size: 0.75rem;">
-          <option value="null">Выбрать категорию</option>
+          <option :value="null">Выбрать категорию</option>
           <option v-for="(row, index) in CATEGORIES" :key="index" :value="row.id">{{row.name}}</option>
       </select>
 

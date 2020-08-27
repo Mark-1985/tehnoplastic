@@ -1,13 +1,16 @@
 <template>
   <div class="about-us container-lg" v-if="data.title">
     <h1 class="my-3">{{data.title.rendered}}</h1>
-    <div class="row">
-      <div class="col-12" v-html="data.content.rendered"></div>
+    <div v-if="CUSTOMERS != ''" class="row">
+      <div v-html="data.content.rendered" class="col-12 align-items-center justify-content-center mx-auto mx-sm-0 mb-3">
+        
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 import axios from "axios";
 export default {
   name: "about-us",
@@ -18,7 +21,9 @@ export default {
       data: "",
     };
   },
-  computed: {},
+  computed: {
+    ...mapGetters(["CUSTOMERS"]),
+  },
   methods: {},
   async mounted() {
     axios
@@ -32,15 +37,18 @@ export default {
 
 <style lang="scss">
 .about-us {
-  p {
+  .alignwide {
+    max-height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
     img {
       display: block;
-      width: 100%;
-      height: 100%;
+      max-width: 200px;
       margin: auto;
       object-fit: scale-down;
     }
-  }
 }
 </style>
 

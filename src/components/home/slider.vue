@@ -8,14 +8,8 @@
       indicators
       :interval="3000"
     >
-      <b-carousel-slide
-        img-src="@/assets/images/slider/461362-PFLYDY-276.jpg"
-      ></b-carousel-slide>
-      <b-carousel-slide
-        img-src="@/assets/images/slider/214838543-family-socks-02.jpg"
-      ></b-carousel-slide>
-      <b-carousel-slide
-        img-src="@/assets/images/slider/1435143843_228e5e.jpg"
+      <b-carousel-slide v-for="(product, index) in POP_PRODUCTS" v-bind:key="index"
+        :img-src="product.images[0].src"
       ></b-carousel-slide>
     </b-carousel>
 
@@ -24,6 +18,7 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 export default {
     name: "slider",
     components: {},
@@ -31,7 +26,9 @@ export default {
   data() {
     return {};
   },
-  computed: { },
+  computed: {
+    ...mapGetters(["POP_PRODUCTS"])
+  },
   methods:{},
   mounted() { }
 }
@@ -42,7 +39,7 @@ export default {
   .carousel-inner {
     img {
       min-height: 245px;
-      max-height: 480px;
+      max-height: 550px;
 
     }
   }

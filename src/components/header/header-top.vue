@@ -40,7 +40,7 @@ export default {
   created() {
   },
   computed: {
-    ...mapGetters(["LSTOREG", "CUSTOMERS"]),
+    ...mapGetters(["CUSTOMERS"]),
   },
   methods: {
     ...mapActions([

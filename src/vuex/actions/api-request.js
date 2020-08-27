@@ -119,8 +119,6 @@ export default {
       $date.setMonth(1);
       var $date_back = $date.toISOString();
       $date_back = $date_back.slice(0, -5);
-      console.log($date_back);
-
       const WooCommerce = new WooCommerceRestApi({
         url: SETTINGS.URL, // Your store URL
         consumerKey: SETTINGS.KEY, // Your consumer key
