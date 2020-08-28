@@ -24,7 +24,7 @@ export default {
   },
    data() {
     return {
-      title: "Hello home"
+      title: "Hello home"    
     };
   },
 };
