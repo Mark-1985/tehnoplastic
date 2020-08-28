@@ -42,7 +42,7 @@
                 @click="indexGallery = thumbIndex"
                 class="carousel-item"
               >
-                <img :src="img.src" :alt="PRODUCT[0].name" class="d-block w-100" />
+                <img :src="img.src" :alt="PRODUCT[0].name" class="d-block w-100" style="height: 300px" />
               </div>
             </div>
             <a @click="prevImg" class="carousel-control-prev">

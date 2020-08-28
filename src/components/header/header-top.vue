@@ -24,9 +24,6 @@
 import { mapActions, mapGetters } from "vuex";
 export default {
   name: "header-top",
-  components: {
-  },
-  props: {},
   data() {
     return {
       phone: null,
@@ -34,8 +31,6 @@ export default {
       toemail: null,
       tophone: null,
     };
-  },
-  created() {
   },
   computed: {
     ...mapGetters(["CUSTOMERS"]),
@@ -46,7 +41,6 @@ export default {
   async mounted() {
     this.GET_CUSTOMERS_FROM_API().then((response) => {
       if (response.data) {
-        //console.log(response.data);
         this.phone = response.data.billing.phone;
         this.email = response.data.email;
         this.toemail = "mailto:" + response.data.email;
@@ -54,17 +48,5 @@ export default {
       }
     });
   },
-  watch: {},
 };
 </script>
-
-<style lang="scss">
-.navbar {
-  .navbar-brand {
-    color: $blue;
-    &:hover {
-      color: $orang;
-    }
-  }
-}
-</style>

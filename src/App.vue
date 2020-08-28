@@ -23,9 +23,6 @@ export default {
     footerBottom: () => import("@/components/footer/footer"),
     bBreadcrumb: () => import("@/components/breadcrumb/breadcrumb"),
   },
-  computed: {},
-  methods: {},
-  mounted() {},
 };
 </script>
 

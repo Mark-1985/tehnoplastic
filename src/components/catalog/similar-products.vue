@@ -35,14 +35,10 @@ export default {
     };
   },
   computed: { 
-    ...mapGetters(["CART", "SIMILAR_PRODUCTS"]),
+    ...mapGetters(["SIMILAR_PRODUCTS"]),
   },
   methods:{
-    ...mapActions(["GET_SIMILAR_PRODUCTS_FROM_API", "ADD_TO_CART"]),
-    addToCart(data) {
-      this.ADD_TO_CART(data);
-    }
-
+    ...mapActions(["GET_SIMILAR_PRODUCTS_FROM_API"]),
   },
   mounted() {
     this.GET_SIMILAR_PRODUCTS_FROM_API(this.category_id).then(response => {
@@ -58,7 +54,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-
-</style>

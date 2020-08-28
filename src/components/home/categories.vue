@@ -70,11 +70,9 @@ export default {
       img {
         transition: all 0.1s ease-out;
         transform: scale(1.02);
-        //border: red solid 3px;
       }
       
     }
-
     .card {
       img {
         height: 278px;

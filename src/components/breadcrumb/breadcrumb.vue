@@ -10,8 +10,6 @@
 import { mapGetters } from "vuex";
 export default {
   name: "breadcrumb",
-  components: { 
-  },
   props: {
       name_breadcrumb: {
           type: String,

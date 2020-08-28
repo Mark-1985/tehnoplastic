@@ -9,18 +9,10 @@
 
     export default {
         name: "search",
-        props: {},
         data() {
             return {
                 searchValue: ''
             }
         },
-        computed: {},
-        methods: {},
-
     }
 </script>
-
-<style lang="scss">
-
-</style>

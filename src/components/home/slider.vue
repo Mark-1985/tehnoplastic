@@ -21,16 +21,12 @@
 import { mapGetters } from "vuex";
 export default {
     name: "slider",
-    components: {},
-    props: {},
   data() {
     return {};
   },
   computed: {
     ...mapGetters(["POP_PRODUCTS"])
   },
-  methods:{},
-  mounted() { }
 }
 </script>
 
@@ -40,7 +36,6 @@ export default {
     img {
       min-height: 245px;
       max-height: 550px;
-
     }
   }
 }

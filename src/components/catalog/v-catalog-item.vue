@@ -22,13 +22,11 @@
           </div>
         </div>
         <b-button
-          class="btn_look"
           block
           variant="primary bd-highlight"
           @click="toProduct(product_data)"
         >
           Подробнее
-          <!-- <svg-icon name="redo"></svg-icon> -->
         </b-button>
 
       </div>
@@ -53,7 +51,6 @@ export default {
       hover: false
     };
   },
-  computed: {},
   methods: {
     ...mapActions(["GET_PRODUCT_SLUG_TO_VUEX", "GET_PRODUCT_FROM_API"]),
     toProduct() {
@@ -83,18 +80,6 @@ export default {
     &:hover {
       cursor: pointer;
       transform: scale(1.02);
-    }
-    .card-body {
-      .btn_buy {
-        svg {
-          fill: url(#svgicon_shopping-cart_a);
-        }
-      }
-      .btn_look {
-        svg {
-          fill: rgb(255, 231, 13);
-        }
-      }
     }
   }
 }

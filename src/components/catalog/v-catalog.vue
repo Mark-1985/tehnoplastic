@@ -43,14 +43,12 @@ import VCatalogItem from "./v-catalog-item";
 import { mapActions, mapGetters } from "vuex";
 import paginationMixin from "@/mixins/pagination.mixins";
 import sortingCategoriesMixin from "@/mixins/sorting-categories.mixins";
-
 export default {
   name: "v-catalog",
   mixins: [paginationMixin, sortingCategoriesMixin],
   components: { 
     VCatalogItem 
   },
-  props: {},
   data() {
     return {
       sortingCategories: 'Выбрать категорию',
@@ -59,7 +57,6 @@ export default {
       show: false
     };
   },
-  created() {},
   computed: {
     ...mapGetters([
       "SEARCH_VALUE",
@@ -72,7 +69,7 @@ export default {
   methods: {
     ...mapActions([
       "GET_PRODUCTS_FROM_API",
-      "GET_ID_CATEGORIES_TO_VUEX",
+      "GET_ID_CATEGORIES_TO_VUEX"
     ]),
     nextPage() {
       this.show = false;

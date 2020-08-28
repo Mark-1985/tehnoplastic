@@ -3,7 +3,7 @@
     <div class="container-lg py-10">
       <div class="row">
         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-          <h5>Наш услуги:</h5>
+          <h5>Наши услуги:</h5>
           <hr class="mt-1 bg-white" />
           <div v-if="data" class="font-size-14 text-muted" v-html="data.excerpt.rendered"></div>
         </div>
@@ -119,7 +119,6 @@ import axios from "axios";
 export default {
   name: "footer-bottom",
   components: { BIconFolder, BIconEnvelope, BIconTelephone, BIconHouseDoor },
-  props: {},
   data() {
     return {
       vModelValue: "",

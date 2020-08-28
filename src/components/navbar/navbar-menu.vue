@@ -110,7 +110,6 @@ export default {
       });
     }
   },
-  watch: {},
 };
 </script>
 

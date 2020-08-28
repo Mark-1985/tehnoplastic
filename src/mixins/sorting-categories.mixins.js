@@ -1,12 +1,5 @@
 
 export default {
-  data() {
-    return {
-      
-    }
-  },
-  async mounted() {
-  },
   watch: {
     // отслеживание сортировок по категориям
     sortingCategories: function() {
@@ -27,8 +20,6 @@ export default {
           this.show = true;
         }
       });
-
-      //this.sortingCategories = this.CATEGORY_ID;
       
       if (this.CATEGORY_ID === "" || this.CATEGORY_ID === null) {
         this.sortingCategories = "Выбрать категорию";
