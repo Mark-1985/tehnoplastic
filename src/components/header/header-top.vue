@@ -1,5 +1,5 @@
 <template>
-  <b-navbar toggleable="sm" type="light" variant="white" class="py-0">
+  <b-navbar toggleable="sm" type="light" variant="white" class="py-0 px-0">
     <b-container fluid="lg" class="my-2">
       <b-navbar-brand :href="url" class="d-flex mx-auto mx-sm-0 h1 text-uppercase text-primary mb-0">
         <img :src=" require('../../assets/logo.png') " alt="logo" height="40" />
