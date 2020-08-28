@@ -22,21 +22,11 @@ export default {
     NewProducts: ()=>import ('@/components/catalog/new-products')
 
   },
-  props: {},
    data() {
     return {
       title: "Hello home"
     };
   },
-  computed: {
-
-  },
-  methods: {
-
-  },
-  mounted() {
-  },
-  watch: {}
 };
 </script>
 

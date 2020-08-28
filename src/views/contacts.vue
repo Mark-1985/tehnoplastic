@@ -10,22 +10,17 @@
 import axios from "axios";
 export default {
   name: "contacts",
-  components: {},
-  props: {},
   data() {
     return {
       data: "",
     };
   },
-  computed: {},
-  methods: {},
   async mounted() {
     axios
       .get("https://www.tehnoplastic.com.ua/wp-json/wp/v2/pages/24")
       .then((response) => (this.data = response.data))
       .catch((error) => console.log(error));
   },
-  watch: {},
 };
 </script>
 

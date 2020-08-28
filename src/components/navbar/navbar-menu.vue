@@ -100,7 +100,7 @@ export default {
       }
     },
   },
-  mounted() {
+  async mounted() {
     this.GET_MENU_FROM_API().then((response) => {});
     console.log(this.menuName);
     if (this.$route.path == this.menuName) {

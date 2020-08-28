@@ -40,7 +40,7 @@ export default {
   methods:{
     ...mapActions(["GET_SIMILAR_PRODUCTS_FROM_API"]),
   },
-  mounted() {
+  async mounted() {
     this.GET_SIMILAR_PRODUCTS_FROM_API(this.category_id).then(response => {
       if (response.data) {
         this.show = false;

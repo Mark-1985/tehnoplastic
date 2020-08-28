@@ -15,23 +15,11 @@
 <script>
 export default {
   name: "404",
-  components: {
-  },
-  props: {},
    data() {
     return {
       title: "404"
     };
   },
-  computed: {
-
-  },
-  methods: {
-
-  },
-  mounted() {
-  },
-  watch: {}
 };
 </script>
 
