@@ -32,7 +32,6 @@ let store = new Vuex.Store({
     vModelValue: "",
     popProduct: [],
     newProduct: [],
-    info: [],
     similar_products: [],
   },
   mutations,

@@ -49,23 +49,6 @@ export default {
       throw new Error(`Unable to get currency MENU`);
     }
   },
-  async GET_INFO_FROM_API({ commit }) {
-    try {
-      return await axios(SETTINGS.URL + "wp-json", {
-        method: "GET",
-      })
-        .then((info) => {
-          commit("SET_INFO_TO_STATE", info);
-          return info;
-        })
-        .catch((error) => {
-          console.log(error);
-          return error;
-        });
-    } catch (error) {
-      throw new Error(`Unable to get currency INFO`);
-    }
-  },
   async GET_CUSTOMERS_FROM_API({ commit }) {
     try {
       const WooCommerce = new WooCommerceRestApi({

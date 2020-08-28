@@ -6,9 +6,6 @@ export default {
       }
     });
   },
-  SET_INFO_TO_STATE: (state, info) => {
-    state.info = info;
-  },
   SET_CUSTOMERS_TO_STATE: (state, customers) => {
     state.customers = customers;
   },

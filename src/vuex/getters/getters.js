@@ -29,9 +29,6 @@ export default {
   MENU(state) {
     return state.menu;
   },
-  INFO(state) {
-    return state.info;
-  },
   CUSTOMERS(state) {
     return state.customers;
   },
@@ -41,5 +38,4 @@ export default {
   SIMILAR_PRODUCTS(state) {
     return state.similar_products;
   },
-
 };

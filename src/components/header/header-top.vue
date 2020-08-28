@@ -1,7 +1,7 @@
 <template>
   <b-navbar toggleable="sm" type="light" variant="white" class="py-0 px-0">
     <b-container fluid="lg" class="my-2">
-      <b-navbar-brand :href="url" class="d-flex mx-auto mx-sm-0 h1 text-uppercase text-primary mb-0">
+      <b-navbar-brand href="/" class="d-flex mx-auto mx-sm-0 h1 text-uppercase text-primary mb-0">
         <img :src=" require('../../assets/logo.png') " alt="logo" height="40" />
         <h3 v-if="this.CUSTOMERS !=''" class="px-3">{{this.CUSTOMERS.billing.first_name}}</h3>
       </b-navbar-brand>
@@ -33,8 +33,6 @@ export default {
       email: null,
       toemail: null,
       tophone: null,
-      url: null,
-      description: null
     };
   },
   created() {
@@ -43,10 +41,7 @@ export default {
     ...mapGetters(["CUSTOMERS"]),
   },
   methods: {
-    ...mapActions([
-      "GET_CUSTOMERS_FROM_API",
-      "GET_INFO_FROM_API",
-    ]),
+    ...mapActions([ "GET_CUSTOMERS_FROM_API" ]),
   },
   async mounted() {
     this.GET_CUSTOMERS_FROM_API().then((response) => {
@@ -56,12 +51,6 @@ export default {
         this.email = response.data.email;
         this.toemail = "mailto:" + response.data.email;
         this.tophone = "tel:" + response.data.billing.phone;
-      }
-    });
-    this.GET_INFO_FROM_API().then((response) => {
-      if (response.data) {
-        this.url = response.data.url;
-        this.description = response.data.description;
       }
     });
   },
