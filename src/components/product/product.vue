@@ -159,7 +159,7 @@ export default {
       this.isActive = value;
     },
   },
-  mounted() {
+  async mounted() {
     this.isActive = 0;
     let $wLoc = window.location.href;
     let  $slug = $wLoc.split('?')[0].split('/product/')[1]

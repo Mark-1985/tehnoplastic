@@ -11,7 +11,6 @@
         v-for="product in POP_PRODUCTS"
         :key="product.id"
         :product_data="product"
-        @addToCart="addToCart"
       ></v-catalog-item>
     </div>
   </div>

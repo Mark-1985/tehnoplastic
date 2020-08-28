@@ -11,7 +11,6 @@
         v-for="product in NEW_PRODUCTS"
         :key="product.id"
         v-bind:product_data="product"
-        @addToCart="addToCart"
       ></v-catalog-item>
     </div>
   </div>
@@ -39,7 +38,7 @@ export default {
   methods: {
     ...mapActions(["GET_NEW_PRODUCTS_FROM_API"]),
   },
-  mounted() {
+  async mounted() {
     this.GET_NEW_PRODUCTS_FROM_API().then(response => {
       if (response.data) {
         this.show = false;

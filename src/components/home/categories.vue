@@ -51,7 +51,7 @@ export default {
       })
     }
   },
-  mounted() {
+  async mounted() {
     this.GET_CATEGORIES_FROM_API().then(response => {
       if (response.data) {
         this.show = false;

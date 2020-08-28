@@ -14,8 +14,6 @@ import { mapGetters } from "vuex";
 import axios from "axios";
 export default {
   name: "about-us",
-  components: {},
-  props: {},
   data() {
     return {
       data: "",
@@ -24,14 +22,12 @@ export default {
   computed: {
     ...mapGetters(["CUSTOMERS"]),
   },
-  methods: {},
   async mounted() {
     axios
       .get("https://www.tehnoplastic.com.ua/wp-json/wp/v2/pages/26")
       .then((response) => (this.data = response.data))
       .catch((error) => console.log(error));
   },
-  watch: {},
 };
 </script>
 

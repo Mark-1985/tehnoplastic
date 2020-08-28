@@ -21,11 +21,7 @@ export default {
         }
       });
       
-      if (this.CATEGORY_ID === "" || this.CATEGORY_ID === null) {
-        this.sortingCategories = "Выбрать категорию";
-      } else {
-        this.sortingCategories = this.CATEGORY_ID;
-      }
+      this.sortingCategories = this.CATEGORY_ID;
     }
   }
 };

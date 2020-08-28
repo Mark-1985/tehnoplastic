@@ -11,15 +11,11 @@ export default {
   components: {
     VCatalog: ()=>import ('@/components/catalog/v-catalog'),
   },
-  props: {},
   data() {
     return {
       title: "Main wrapper"
     };
   },
-  computed: {},
-  methods: {},
-  watch: {}
 };
 </script>
 

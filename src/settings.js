@@ -1,6 +1,6 @@
 
 export default {
-  URL: "https://tehnoplastic.com.ua/",
+  URL: "https://www.tehnoplastic.com.ua/",
   KEY: "ck_58f7a339d3600eb3aa9d3f9044e5a84fe4963026",
   SECRET: "cs_63e5d4f9a021b732fcb0ea3ac6a75d68d4959643",
   KEY_ORDERS: "ck_2645f3e020f700e9736fb11589bacb8e23005492",
