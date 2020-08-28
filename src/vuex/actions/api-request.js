@@ -10,7 +10,7 @@ export default {
         consumerKey: SETTINGS.KEY, // Your consumer key
         consumerSecret: SETTINGS.SECRET, // Your consumer secret
         version: SETTINGS.VERSION_3, // WooCommerce WP REST API version
-        axiosConfig: SETTINGS.AXIOS,
+        axiosConfig: SETTINGS.AXIOS_JSON,
       });
       return await WooCommerce.get("products", await {
         category: state.categoryId,
@@ -57,7 +57,7 @@ export default {
         consumerKey: SETTINGS.KEY, // Your consumer key
         consumerSecret: SETTINGS.SECRET, // Your consumer secret
         version: SETTINGS.VERSION_2, // WooCommerce WP REST API version
-        axiosConfig: SETTINGS.AXIOS,
+        axiosConfig: SETTINGS.AXIOS_JSON,
       });
       return await WooCommerce.get("customers/1")
         .then((customers) => {
@@ -79,7 +79,7 @@ export default {
         consumerKey: SETTINGS.KEY, // Your consumer key
         consumerSecret: SETTINGS.SECRET, // Your consumer secret
         version: SETTINGS.VERSION_3, // WooCommerce WP REST API version
-        axiosConfig: SETTINGS.AXIOS,
+        axiosConfig: SETTINGS.AXIOS_JSON,
       });
       return await WooCommerce.get("products", await {
         featured: true
@@ -108,7 +108,7 @@ export default {
         consumerKey: SETTINGS.KEY, // Your consumer key
         consumerSecret: SETTINGS.SECRET, // Your consumer secret
         version: SETTINGS.VERSION_3, // WooCommerce WP REST API version
-        axiosConfig: SETTINGS.AXIOS,
+        axiosConfig: SETTINGS.AXIOS_JSON,
       });
       return await WooCommerce.get("products", await {
         after: $date_back,
@@ -135,7 +135,7 @@ export default {
         consumerKey: SETTINGS.KEY, // Your consumer key
         consumerSecret: SETTINGS.SECRET, // Your consumer secret
         version: SETTINGS.VERSION_3, // WooCommerce WP REST API version
-        axiosConfig: SETTINGS.AXIOS,
+        axiosConfig: SETTINGS.AXIOS_JSON,
       });
       return await WooCommerce.get("products/categories?exclude=15") // ?include=33,36,39
         .then((categories) => {
@@ -159,7 +159,7 @@ export default {
         consumerKey: SETTINGS.KEY, // Your consumer key
         consumerSecret: SETTINGS.SECRET, // Your consumer secret
         version: SETTINGS.VERSION_3, // WooCommerce WP REST API version
-        axiosConfig: SETTINGS.AXIOS,
+        axiosConfig: SETTINGS.AXIOS_JSON,
       });
       return await WooCommerce.get(
         "products",
@@ -189,7 +189,7 @@ export default {
         consumerKey: SETTINGS.KEY, // Your consumer key
         consumerSecret: SETTINGS.SECRET, // Your consumer secret
         version: SETTINGS.VERSION_3, // WooCommerce WP REST API version
-        axiosConfig: SETTINGS.AXIOS,
+        axiosConfig: SETTINGS.AXIOS_JSON,
       });
       return await  WooCommerce.get(
         "products",

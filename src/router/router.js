@@ -1,13 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 
-import Home from "@/views/home";
-import Shop from "@/views/shop";
-import AboutUs from "@/views/about-us";
-import NoPage from "@/views/no-page";
-import Product from "@/components/product/product";
-import Сontacts from "@/views/contacts";
-
 Vue.use(VueRouter);
 
 const routes = [
@@ -15,25 +8,25 @@ const routes = [
     path: "/",
     post_name: "home",
     name: "Главная страница",
-    component: Home,
+    component: ()=>import("@/views/home"),
   },
   {
     path: "/shop/",
     post_name: "shop",
     name: "Каталог",
-    component: Shop,
+    component: ()=>import("@/views/shop"),
   },
   {
     path: "/blog/",
     post_name: "about-us",
     name: 'О нас',
-    component: AboutUs,
+    component: ()=>import("@/views/about-us"),
   },
   {
     path: "/404/",
     post_name: "404",
     name:'404',
-    component: NoPage,
+    component: ()=>import("@/views/no-page"),
   },
   {
     path: "*",
@@ -42,14 +35,14 @@ const routes = [
   {
     path: "/product/:product",
     name: "product",
-    component: Product,
+    component: ()=>import("@/components/product/product"),
     props: true,
   },
   {
     path: "/contact/",
     post_name: "contacts",
     name: 'Контакты',
-    component: Сontacts,
+    component: ()=>import("@/views/contacts"),
   },
 
 
