@@ -36,6 +36,7 @@ export default {
     try {
       return await axios(SETTINGS.URL + "wp-json/wp/v2/menu", {
         method: "GET",
+        headers: { 'content-type': 'application/x-www-form-urlencoded' },
       })
         .then((menu) => {
           commit("SET_MENU_TO_STATE", menu.data);
