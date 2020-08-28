@@ -2,14 +2,10 @@
 export default {
   data() {
     return {
-      sortingCategories: null,
+      
     }
   },
   async mounted() {
-    if (this.$route.path != "/shop" || this.$route.path != "/shop/") {
-      this.sortingCategories = this.CATEGORY_ID;
-    }
-    
   },
   watch: {
     // отслеживание сортировок по категориям
@@ -32,10 +28,12 @@ export default {
         }
       });
 
-      this.sortingCategories = this.CATEGORY_ID;
+      //this.sortingCategories = this.CATEGORY_ID;
       
-      if(this.CATEGORY_ID === "") {
-        this.sortingCategories = null;
+      if (this.CATEGORY_ID === "" || this.CATEGORY_ID === null) {
+        this.sortingCategories = "Выбрать категорию";
+      } else {
+        this.sortingCategories = this.CATEGORY_ID;
       }
     }
   }

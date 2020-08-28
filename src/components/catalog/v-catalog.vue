@@ -6,7 +6,8 @@
       <select class="col-6 col-sm-4 col-md-4 col-lg-2 custom-select" 
               v-model="sortingCategories"
               style="max-height: 30px; font-size: 0.75rem;">
-          <option :value="null">Выбрать категорию</option>
+          <option disabled>Выбрать категорию</option>
+          <option :value="null">Все категории</option>
           <option v-for="(row, index) in CATEGORIES" :key="index" :value="row.id">{{row.name}}</option>
       </select>
 
@@ -25,6 +26,7 @@
       ></v-catalog-item>
     </div>
     <b-pagination-nav
+      v-if="this.ROWS > 1"
       @change="nextPage"
       :link-gen="linkGen"
       :number-of-pages="ROWS"
@@ -51,6 +53,7 @@ export default {
   props: {},
   data() {
     return {
+      sortingCategories: 'Выбрать категорию',
       lineItems: [],
       currentPage: null,
       show: false
@@ -103,10 +106,6 @@ export default {
   watch: {
     // отслеживание изменения route
     $route: function() {
-      //добавить страницу оплата и доставка
-      if (this.$route.path === "/" || this.$route.path === "/blog/") {
-        this.sortingCategories = null;
-      }
       if (
         this.$route.fullPath === "/shop" ||
         this.$route.fullPath === "/shop/"
@@ -117,6 +116,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss">
-</style>
