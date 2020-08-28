@@ -20,23 +20,34 @@ function mihdan_add_async_attribute( $tag, $handle ) {
 add_filter( 'wp_resource_hints', 'filter_function_name_2244', 10, 2 );
 function filter_function_name_2244( $urls, $relation_type ){	
 	if ( 'prerender' === $relation_type ){
-	$urls[] = '/dist/js/chunk-0cda41aa.js';
-	$urls[] = '/dist/js/chunk-100e0ca6.js';
-	$urls[] = '/dist/js/chunk-2d0c8db9.js';
-	$urls[] = '/dist/js/chunk-2d2094f4.js';
-	$urls[] = '/dist/js/chunk-2d22dd1f.js';
-	$urls[] = '/dist/js/chunk-4bcaa815.js';
-	$urls[] = '/dist/js/chunk-5c7bf47f.js';
-	$urls[] = '/dist/js/chunk-7049252e.js';
-	$urls[] = '/dist/js/chunk-7aac1130.js';
-	$urls[] = '/dist/js/chunk-8f3711ba.js';
-	$urls[] = '/dist/js/chunk-e933e7e2.js';
-	$urls[] = '/dist/css/chunk-0cda41aa.css';
-	$urls[] = '/dist/css/chunk-100e0ca6.css';
-	$urls[] = '/dist/css/chunk-4bcaa815.css';
-	$urls[] = '/dist/css/chunk-7049252e.css';
-	$urls[] = '/dist/css/chunk-7aac1130.css';
-	$urls[] = '/dist/css/chunk-8f3711ba.css';
+	$urls[] = get_stylesheet_directory_uri() . '/dist/js/chunk-0cda41aa.js';
+	$urls[] = get_stylesheet_directory_uri() . '/dist/js/chunk-1cdaf2eb.js';
+	$urls[] = get_stylesheet_directory_uri() . '/dist/js/chunk-2d0c8db9.js';
+	$urls[] = get_stylesheet_directory_uri() . '/dist/js/chunk-2d2094f4.js';
+	$urls[] = get_stylesheet_directory_uri() . '/dist/js/chunk-2d22dd1f.js';
+	$urls[] = get_stylesheet_directory_uri() . '/dist/js/chunk-4bcaa815.js';
+	$urls[] = get_stylesheet_directory_uri() . '/dist/js/chunk-5c7bf47f.js';
+	$urls[] = get_stylesheet_directory_uri() . '/dist/js/chunk-8f3711ba.js';
+	$urls[] = get_stylesheet_directory_uri() . '/dist/js/chunk-22b663cc.js';
+	$urls[] = get_stylesheet_directory_uri() . '/dist/js/chunk-35e6be7f.js';
+	$urls[] = get_stylesheet_directory_uri() . '/dist/js/chunk-65aaa008.js';
+	$urls[] = get_stylesheet_directory_uri() . '/dist/js/chunk-071b5171.js';
+	$urls[] = get_stylesheet_directory_uri() . '/dist/js/chunk-100e0ca6.js';
+	$urls[] = get_stylesheet_directory_uri() . '/dist/js/chunk-3916cefc.js';
+	$urls[] = get_stylesheet_directory_uri() . '/dist/js/chunk-06439bbd.js';
+	$urls[] = get_stylesheet_directory_uri() . '/dist/js/chunk-14503344.js'; 
+	$urls[] = get_stylesheet_directory_uri() . '/dist/js/chunk-e933e7e2.js';
+	$urls[] = get_stylesheet_directory_uri() . '/dist/css/chunk-0cda41aa.css';
+	$urls[] = get_stylesheet_directory_uri() . '/dist/css/chunk-1cdaf2eb.css';
+	$urls[] = get_stylesheet_directory_uri() . '/dist/css/chunk-4bcaa815.css';
+	$urls[] = get_stylesheet_directory_uri() . '/dist/css/chunk-8f3711ba.css';
+	$urls[] = get_stylesheet_directory_uri() . '/dist/css/chunk-22b663cc.css';
+	$urls[] = get_stylesheet_directory_uri() . '/dist/css/chunk-35e6be7f.css';
+	$urls[] = get_stylesheet_directory_uri() . '/dist/css/chunk-071b5171.css';
+	$urls[] = get_stylesheet_directory_uri() . '/dist/css/chunk-100e0ca6.css';
+	$urls[] = get_stylesheet_directory_uri() . '/dist/css/chunk-3916cefc.css';
+	$urls[] = get_stylesheet_directory_uri() . '/dist/css/chunk-06439bbd.css';
+	$urls[] = get_stylesheet_directory_uri() . '/dist/css/chunk-14503344.css';
 };
 	return $urls;
 };
@@ -47,16 +58,22 @@ add_filter( 'vuejs-wordpress-theme-starter-app', 'mihdan_add_async_attribute', 1
 // Load scripts
 function load_vue_scripts() {
 wp_enqueue_script('vuejs-wordpress-theme-starter-app11', get_stylesheet_directory_uri() . '/dist/js/chunk-0cda41aa.js',null);
-wp_enqueue_script('vuejs-wordpress-theme-starter-app21', get_stylesheet_directory_uri() . '/dist/js/chunk-100e0ca6.js',null);
+wp_enqueue_script('vuejs-wordpress-theme-starter-app12', get_stylesheet_directory_uri() . '/dist/js/chunk-1cdaf2eb.js',null);
 wp_enqueue_script('vuejs-wordpress-theme-starter-app31', get_stylesheet_directory_uri() . '/dist/js/chunk-2d0c8db9.js',null);
 wp_enqueue_script('vuejs-wordpress-theme-starter-app41', get_stylesheet_directory_uri() . '/dist/js/chunk-2d2094f4.js',null);
 wp_enqueue_script('vuejs-wordpress-theme-starter-app51', get_stylesheet_directory_uri() . '/dist/js/chunk-2d22dd1f.js',null);
 wp_enqueue_script('vuejs-wordpress-theme-starter-app61', get_stylesheet_directory_uri() . '/dist/js/chunk-4bcaa815.js',null);
 wp_enqueue_script('vuejs-wordpress-theme-starter-app71', get_stylesheet_directory_uri() . '/dist/js/chunk-5c7bf47f.js',null);
-wp_enqueue_script('vuejs-wordpress-theme-starter-app81', get_stylesheet_directory_uri() . '/dist/js/chunk-7049252e.js',null);
-wp_enqueue_script('vuejs-wordpress-theme-starter-app91', get_stylesheet_directory_uri() . '/dist/js/chunk-7aac1130.js',null);
 wp_enqueue_script('vuejs-wordpress-theme-starter-app10', get_stylesheet_directory_uri() . '/dist/js/chunk-8f3711ba.js',null);
-wp_enqueue_script('vuejs-wordpress-theme-starter-app32', get_stylesheet_directory_uri() . '/dist/js/chunk-e933e7e2.js',null);
+wp_enqueue_script('vuejs-wordpress-theme-starter-app81', get_stylesheet_directory_uri() . '/dist/js/chunk-22b663cc.js',null);
+wp_enqueue_script('vuejs-wordpress-theme-starter-app21', get_stylesheet_directory_uri() . '/dist/js/chunk-35e6be7f.js',null);
+wp_enqueue_script('vuejs-wordpress-theme-starter-app91', get_stylesheet_directory_uri() . '/dist/js/chunk-65aaa008.js',null);
+wp_enqueue_script('vuejs-wordpress-theme-starter-app32', get_stylesheet_directory_uri() . '/dist/js/chunk-071b5171.js',null);
+wp_enqueue_script('vuejs-wordpress-theme-starter-app33', get_stylesheet_directory_uri() . '/dist/js/chunk-100e0ca6.js',null);
+wp_enqueue_script('vuejs-wordpress-theme-starter-app34', get_stylesheet_directory_uri() . '/dist/js/chunk-3916cefc.js',null);
+wp_enqueue_script('vuejs-wordpress-theme-starter-app35', get_stylesheet_directory_uri() . '/dist/js/chunk-06439bbd.js',null);
+wp_enqueue_script('vuejs-wordpress-theme-starter-app36', get_stylesheet_directory_uri() . '/dist/js/chunk-14503344.js',null);
+wp_enqueue_script('vuejs-wordpress-theme-starter-app37', get_stylesheet_directory_uri() . '/dist/js/chunk-e933e7e2.js',null);
 	wp_enqueue_script(
 		'vuejs-wordpress-theme-starter-vandors-js',
 		get_stylesheet_directory_uri() . '/dist/js/chunk-vendors.js',
@@ -70,11 +87,17 @@ wp_enqueue_script('vuejs-wordpress-theme-starter-app32', get_stylesheet_director
 	);	
 	
 wp_enqueue_style('vuejs-wordpress-theme-starter-css11', get_stylesheet_directory_uri() . '/dist/css/chunk-0cda41aa.css', null);
-wp_enqueue_style('vuejs-wordpress-theme-starter-css21', get_stylesheet_directory_uri() . '/dist/css/chunk-100e0ca6.css', null);
+wp_enqueue_style('vuejs-wordpress-theme-starter-css12', get_stylesheet_directory_uri() . '/dist/css/chunk-1cdaf2eb.css', null);
 wp_enqueue_style('vuejs-wordpress-theme-starter-css31', get_stylesheet_directory_uri() . '/dist/css/chunk-4bcaa815.css', null);
-wp_enqueue_style('vuejs-wordpress-theme-starter-css41', get_stylesheet_directory_uri() . '/dist/css/chunk-7049252e.css', null);
-wp_enqueue_style('vuejs-wordpress-theme-starter-css51', get_stylesheet_directory_uri() . '/dist/css/chunk-7aac1130.css', null);
 wp_enqueue_style('vuejs-wordpress-theme-starter-css61', get_stylesheet_directory_uri() . '/dist/css/chunk-8f3711ba.css', null);
+wp_enqueue_style('vuejs-wordpress-theme-starter-css62', get_stylesheet_directory_uri() . '/dist/css/chunk-22b663cc.css', null);
+wp_enqueue_style('vuejs-wordpress-theme-starter-css21', get_stylesheet_directory_uri() . '/dist/css/chunk-35e6be7f.css', null);
+wp_enqueue_style('vuejs-wordpress-theme-starter-css41', get_stylesheet_directory_uri() . '/dist/css/chunk-071b5171.css', null);
+wp_enqueue_style('vuejs-wordpress-theme-starter-css51', get_stylesheet_directory_uri() . '/dist/css/chunk-100e0ca6.css', null);
+wp_enqueue_style('vuejs-wordpress-theme-starter-css52', get_stylesheet_directory_uri() . '/dist/css/chunk-3916cefc.css', null);
+wp_enqueue_style('vuejs-wordpress-theme-starter-css53', get_stylesheet_directory_uri() . '/dist/css/chunk-06439bbd.css', null);
+wp_enqueue_style('vuejs-wordpress-theme-starter-css54', get_stylesheet_directory_uri() . '/dist/css/chunk-14503344.css', null);
+
 
 	wp_enqueue_style(
 		'vuejs-wordpress-theme-starter-chunk-vendors',
