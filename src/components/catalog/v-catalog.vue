@@ -64,12 +64,16 @@ export default {
       "ROWS",
       "CATEGORY_ID",
       "CATEGORIES",
+      "CATEGORY_SLUG",
+      "CATEGORY"
     ])
   },
   methods: {
     ...mapActions([
       "GET_PRODUCTS_FROM_API",
-      "GET_ID_CATEGORIES_TO_VUEX"
+      "GET_ID_CATEGORIES_TO_VUEX",
+      "GET_CATEGORY_SLUG_TO_VUEX",
+      "GET_CATEGORY_FROM_API"
     ]),
     nextPage() {
       this.show = false;
@@ -86,27 +90,54 @@ export default {
     }
   },
   async mounted() {
-    if (this.$route.fullPath === "/shop" || this.$route.fullPath === "/shop/") {
+/*     if (this.$route.path === '/shop' || this.$route.path === '/shop/') {
+      this.$router.push({
+        name: "Каталог",
+        params: { shop: 'all-categories' }
+      });
+    }
+ */    if ( this.$route.name === "Каталог" ) {
       this.$set(this.$route.query, "page", 1);
     }
-    this.GET_PRODUCTS_FROM_API(this.$route.query.page).then(response => {
-      if (response.data) {
-        if (this.$route.query.page) {
-          this.currentPage = this.$route.query.page;
-          this.show = true;
-        } else {
-          this.currentPage = 1;
-        }
+    let $wLoc = window.location.href;
+    let $slug = $wLoc.split('?')[0].split('/shop/')[1]
+    //console.log($slug);
+    if ($slug && $slug != 'all-categories') {
+      this.GET_CATEGORY_SLUG_TO_VUEX($slug);
+      if (this.CATEGORY_SLUG != '') {
+        this.GET_CATEGORY_FROM_API().then(response => {
+          if (response.data) {
+            this.GET_ID_CATEGORIES_TO_VUEX(this.CATEGORY[0].id);
+             this.sortingCategories = this.CATEGORY[0].id;
+             this.show = true;
+          }
+        });
+      }
+    } else {
+        this.$router.push({
+          name: "Каталог",
+          params: { shop: 'all-categories' }
+        });
+        this.GET_PRODUCTS_FROM_API(this.$route.query.page).then(response => {
+          if (response.data) {
+            if (this.$route.query.page) {
+              this.currentPage = this.$route.query.page;
+              this.show = true;
+            } else {
+              this.currentPage = 1;
+            }
       }
     });
+
+    }
+    if (this.CATEGORY_ID != null) {
+      this.sortingCategories = this.CATEGORY_ID;
+    }
   },
   watch: {
     // отслеживание изменения route
     $route: function() {
-      if (
-        this.$route.fullPath === "/shop" ||
-        this.$route.fullPath === "/shop/"
-      ) {
+      if ( this.$route.name === "Каталог" ) {
         this.$set(this.$route.query, "page", 1);
       }
     }

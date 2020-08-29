@@ -11,7 +11,7 @@ const routes = [
     component: ()=>import("@/views/home"),
   },
   {
-    path: "/shop/",
+    path: "/shop/:shop",
     post_name: "shop",
     name: "Каталог",
     component: ()=>import("@/views/shop"),
@@ -31,6 +31,11 @@ const routes = [
   {
     path: "*",
     redirect: "/404",
+  },
+  {
+    path: "/shop",
+    redirect: "/shop/all-categories",
+
   },
   {
     path: "/product/:product",

@@ -52,7 +52,7 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(["MENU", "SEARCH_VALUE", "CATEGORY_ID"]),
+    ...mapGetters(["MENU", "SEARCH_VALUE", "CATEGORY_ID", "CATEGORY_SLUG"]),
   },
   methods: {
     ...mapActions([
@@ -79,11 +79,17 @@ export default {
           username: m[4] || "", // username
           password: m[5] || "", // password
         };
-      return r.pathname;
+        if(r.pathname === '/shop/' && this.CATEGORY_ID === null) {
+          return r.pathname + 'all-categories';
+        } else if (this.CATEGORY_ID != '' && r.pathname === '/shop/') {
+          return r.pathname + this.CATEGORY_SLUG;
+        } else if (r.pathname != '/shop/') {
+           return r.pathname;
+        }
     },
     search(value) {
       this.GET_SEARCH_VALUE_TO_VUEX(value);
-      if (this.$route.path != "/shop" || this.$route.path != "/shop/") {
+      if (this.$route.name === 'Каталог') {
         this.$router.push("/shop");
         this.GET_PRODUCTS_FROM_API();
       } else {
@@ -92,7 +98,7 @@ export default {
       }
     },
     clearing_values() {
-      if (this.$router.path != "/shop" || this.$router.path != "/shop/") {
+      if (this.$router.name != "Каталог") {
         //this.GET_ID_CATEGORIES_TO_VUEX("");
         this.vModelValue = "";
         this.GET_SEARCH_VALUE_TO_VUEX("");

@@ -33,6 +33,8 @@ let store = new Vuex.Store({
     popProduct: [],
     newProduct: [],
     similar_products: [],
+    category: '',
+    category_slug: ''
   },
   mutations,
   actions,

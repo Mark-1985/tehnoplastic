@@ -18,6 +18,9 @@ export default {
   SET_PRODUCT_SLUG_TO_VUEX: (state, value) => {
     state.product_slug = value;
   },
+  SET_CATEGORY_SLUG_TO_VUEX: (state, value) => {
+    state.category_slug = value;
+  },
   SET_PRODUCTS_TO_STATE: (state, product) => {
     //передаем даные в продукт з мутации
     state.products = product;
@@ -25,6 +28,10 @@ export default {
   SET_PRODUCT_FROM_API: (state, product) => {
     //передаем даные в продукт з мутации
     state.product = product;
+  },
+  SET_CATEGORY_FROM_API: (state, product) => {
+    //передаем даные в продукт з мутации
+    state.category = product;
   },
   SET_POP_PRODUCTS_TO_STATE: (state, product) => {
     //передаем даные в продукт з мутации

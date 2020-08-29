@@ -151,7 +151,6 @@ export default {
       throw new Error(`Unable to get currency CATEGORIES`);
     }
   },
-  
   async GET_PRODUCT_FROM_API({ commit, state }) {
     try {
       const WooCommerce = new WooCommerceRestApi({
@@ -172,6 +171,34 @@ export default {
           //вызываем мутацию для передачи даных
           commit("SET_PRODUCT_FROM_API", response.data);
           //console.log(categories.data);
+          return response;
+        })
+        .catch((error) => {
+          console.log(error);
+          return error;
+        });
+    } catch (error) {
+      throw new Error(`Unable to get currency PRODUCT`);
+    }
+  },
+  async GET_CATEGORY_FROM_API({ commit, state }) {
+    try {
+      const WooCommerce = new WooCommerceRestApi({
+        url: SETTINGS.URL, // Your store URL
+        consumerKey: SETTINGS.KEY, // Your consumer key
+        consumerSecret: SETTINGS.SECRET, // Your consumer secret
+        version: SETTINGS.VERSION_3, // WooCommerce WP REST API version
+        axiosConfig: SETTINGS.AXIOS_JSON,
+      });
+      return await WooCommerce.get(
+        "products/categories",
+        await {
+          slug: state.category_slug
+        }
+      )
+        .then((response) => {
+          //вызываем мутацию для передачи даных
+          commit("SET_CATEGORY_FROM_API", response.data);
           return response;
         })
         .catch((error) => {

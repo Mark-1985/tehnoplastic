@@ -8,4 +8,8 @@ export default {
     GET_PRODUCT_SLUG_TO_VUEX ({commit}, value) {
         commit('SET_PRODUCT_SLUG_TO_VUEX', value)
     },
+    GET_CATEGORY_SLUG_TO_VUEX({ commit }, value) {
+        commit('SET_CATEGORY_SLUG_TO_VUEX', value)
+    },
+
 }

@@ -9,7 +9,13 @@ export default {
     return state.product;
   },
   PRODUCT_SLUG(state) {
-    return state.product_slug
+    return state.product_slug;
+  },
+  CATEGORY_SLUG(state) {
+    return state.category_slug;
+  },
+  CATEGORY(state) {
+    return state.category;
   },
   PRODUCT_ID(state) {
     return state.product_id;

@@ -10,7 +10,7 @@
         v-for="category in CATEGORIES"
         :key="category.id"
         class="card-body col-12 col-sm-6 col-md-3 py-1"
-        @click="toProducts(category.id)"
+        @click="toProducts(category.id, category.slug)"
       >
         <div class="card border-0">
           <img :src="category.image.src" class="card-img-top img-fluid border-1 p-2" :alt="category.name" />
@@ -42,11 +42,14 @@ export default {
   methods: {
     ...mapActions(["GET_CATEGORIES_FROM_API", "GET_ID_CATEGORIES_TO_VUEX", "GET_PRODUCTS_FROM_API"]),
 
-    toProducts(value) {
+    toProducts(value, slug) {
       this.GET_ID_CATEGORIES_TO_VUEX(value);
       this.GET_PRODUCTS_FROM_API().then(response => {
         if (response.data) {
-          this.$router.push('/shop');
+          this.$router.push({
+              name: "Каталог",
+              params: { shop: slug }
+            }); 
         }
       })
     }
