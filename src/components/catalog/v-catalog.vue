@@ -90,18 +90,11 @@ export default {
     }
   },
   async mounted() {
-/*     if (this.$route.path === '/shop' || this.$route.path === '/shop/') {
-      this.$router.push({
-        name: "Каталог",
-        params: { shop: 'all-categories' }
-      });
-    }
- */    if ( this.$route.name === "Каталог" ) {
+    if ( this.$route.name === "Каталог" ) {
       this.$set(this.$route.query, "page", 1);
     }
     let $wLoc = window.location.href;
     let $slug = $wLoc.split('?')[0].split('/shop/')[1]
-    //console.log($slug);
     if ($slug && $slug != 'all-categories') {
       this.GET_CATEGORY_SLUG_TO_VUEX($slug);
       if (this.CATEGORY_SLUG != '') {

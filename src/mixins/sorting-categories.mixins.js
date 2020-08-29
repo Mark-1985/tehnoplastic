@@ -17,7 +17,6 @@ export default {
           this.show = true;
           if (this.CATEGORY_ID != null) {
             this.GET_CATEGORY_SLUG_TO_VUEX(this.PRODUCTS[0].categories[0].slug);
-            //console.log(this.PRODUCTS[0].categories[0].slug);
             this.$router.push({
               name: "Каталог",
              params: { shop: this.PRODUCTS[0].categories[0].slug }

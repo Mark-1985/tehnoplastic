@@ -163,14 +163,12 @@ export default {
       return await WooCommerce.get(
         "products",
         await {
-          //stock_status: "instock",
           slug: state.product_slug
         }
       )
         .then((response) => {
           //вызываем мутацию для передачи даных
           commit("SET_PRODUCT_FROM_API", response.data);
-          //console.log(categories.data);
           return response;
         })
         .catch((error) => {
